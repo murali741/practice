@@ -13,8 +13,7 @@ pipeline {
     stages {
         stage('conflict') {
             steps {
-                sh 'cd tools'
-                sh './submodule-sync '
+                sh 'my name is jenkins'
             }
         }
     }
