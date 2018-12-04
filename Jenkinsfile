@@ -4,10 +4,10 @@ pipeline {
     agent any
 	
 	parameters{
-	     string(defaultValue: true, description: '', name: 'source_branch')
-		 string(defaultValue: true, description: '', name: 'feature_branch')
-		 string(defaultValue: true, description: '', name: 'date(mmyy)')
-		 string(defaultValue: true, description: '', name: 'jira ticket number')
+	     string(defaultValue: 'develop', description: '', name: 'source_branch')
+		 string(defaultValue: 'none', description: '', name: 'feature_branch')
+		 string(defaultValue: 'none', description: '', name: 'date(mmyy)')
+		 string(defaultValue: 'none', description: '', name: 'jira ticket number')
 	}
 
     stages {
