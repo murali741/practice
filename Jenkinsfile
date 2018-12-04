@@ -6,15 +6,17 @@ pipeline {
 	parameters{
 	     string(defaultValue: 'develop', description: '', name: 'source_branch')
 		 string(defaultValue: 'none', description: '', name: 'feature_branch')
-		 string(defaultValue: 'none', description: '', name: 'date(mmyy)')
-		 string(defaultValue: 'none', description: '', name: 'jira ticket number')
-	}
+		 string(defaultValue: 'none', description: '', name: 'date')
+		 string(defaultValue: 'none', description: '', name: 'jira_ticket')
+                 gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
+            }
 
     stages {
         stage('conflict') {
             steps {
+                git branch: "${params.BRANCH}", url: 'https://github.com/murali741/practice.git'
                 sh 'cd tools'
-                sh './submodule-sync '
+                sh './submodule-sync ${params.source_branch} ${params.feature_branch} ${params.date} ${params.jira_ticket}'
             }
         }
     }
