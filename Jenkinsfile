@@ -15,7 +15,6 @@ pipeline {
                 git branch: "${params.BRANCH}", url: 'https://github.com/murali741/practice.git'
                 sh 'cd tools'
                 sh 'test.sh'
-                sh 'my name is jenkins'
             }
         }
     }
