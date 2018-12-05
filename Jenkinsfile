@@ -9,7 +9,6 @@ pipeline {
                  string(defaultValue: 'none', description: '', name: 'jira_ticket')
                  gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
             }
-    checkout scm
     stages {
         stage('conflict') {
             steps {
