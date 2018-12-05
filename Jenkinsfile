@@ -14,7 +14,7 @@ pipeline {
             steps {
                 git branch: "${params.BRANCH}", url: 'https://github.com/murali741/practice.git'
                 dir('tools') {
- 		   checkout scm
+ 		   sh 'tools/test.sh'
 		}
             }
         }
