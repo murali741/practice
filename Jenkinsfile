@@ -13,6 +13,7 @@ pipeline {
         stage('conflict') {
             steps {
                 git branch: "${params.BRANCH}", url: 'https://github.com/murali741/practice.git'
+                checkout scm
                 dir('tools') {
  		   sh 'tools/test.sh'
 		}
