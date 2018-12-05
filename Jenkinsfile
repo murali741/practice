@@ -2,7 +2,6 @@
 
 pipeline {
     agent any
-        checkout scm 
         parameters{
              string(defaultValue: 'develop', description: '', name: 'source_branch')
                  string(defaultValue: 'none', description: '', name: 'feature_branch')
@@ -10,7 +9,7 @@ pipeline {
                  string(defaultValue: 'none', description: '', name: 'jira_ticket')
                  gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
             }
-
+    checkout scm
     stages {
         stage('conflict') {
             steps {
